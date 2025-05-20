@@ -1,5 +1,6 @@
 # Functions go here
-def string_check(question: object, valid_ans_list: object, num_letters: object) -> object:
+def string_check(question, valid_ans_list=('yes', 'no'),
+                 num_letters=1):
     """Checks that users enter the full word
     or the 'n' letter/s of a word from a list of valid responses
     :rtype: object"""
@@ -20,13 +21,14 @@ def string_check(question: object, valid_ans_list: object, num_letters: object) 
 
         print(f"Please choose an option from {valid_ans_list}")
 
-
 # Main routine goes here
-yes_no_list = ['yes', 'no']
-payment_list = ['cash', 'credit']
+payment_ans = ('cash', 'credit')
 
-like_film = string_check("Do you like film? ",
-                         yes_no_list, num_letters = 1)
-print(f"You chose {like_film}")
-pay_method = string_check("payment method: ", payment_list, num_letters = 2)
-print(f"You chose {pay_method}")
+while True:
+    want_instructions = string_check("Do you want to see the instructions? ")
+    print(f"You chose {want_instructions}")
+    pay_method = string_check("payment method: ", payment_ans, 2)
+    print(f"You chose {pay_method}")
+
+# pay_method = string_check("Payment method: ", payment_ans, 2)
+# print(f"You chose {pay_method}")
